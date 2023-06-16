@@ -16,7 +16,7 @@ int main(void)
 	}
 	for (abc = 'a'; abc <= 'f'; abc++)
 	{
-	pytchar(abc);
+	putchar(abc);
 	}
 	putchar('\n');
 	return (0);
