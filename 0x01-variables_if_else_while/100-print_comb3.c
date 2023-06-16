@@ -14,13 +14,15 @@ int main(void)
 		for (numJ = minI++; numJ <= 57; numJ++)
 		{
 		if (numJ != numI)
-		}
+		{
 		putchar(numI);
 		putchar(numJ);
 		if (!(numJ == 57 && numI == 56))
 		{
 		putchar(',');
 		putchar(' ');
+		}
+		}
 		}
 	}
 	putchar('\n');
