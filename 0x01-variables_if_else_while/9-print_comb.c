@@ -1,0 +1,21 @@
+#include <stdio.h>
+/**
+ * main - Entry point
+ * Return: Always 0
+ */
+int main(void)
+{
+	int num;
+
+	for (num = 48; num <= 57; num++)
+	{
+		putchar(num);
+		if (num != 57)
+		{
+			putchar(',');
+			ptchar(' ');
+		}
+	}
+	putchar('\n');
+	return (0);
+}
