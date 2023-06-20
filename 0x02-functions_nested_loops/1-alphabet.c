@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_alphabet - Entry point
- * Return: Always 0
+ * Return: on success, 0, on error, 1
  */
 void print_alphabet(void)
 {
@@ -12,5 +12,5 @@ void print_alphabet(void)
 		_putchar(letter);
 		letter++;
 	}
-	return (0);
+	_putchar('\n');
 }
