@@ -6,11 +6,11 @@ int main(void)
 	int a[5];
 	int *p;
 
-	a[2] = 98;
+	a[2] = 1024;
 	p = &n;
 	/*
 	 * write your line of code here...
-	 * remember
+	 * Remember:
 	 * - you are not allowed to use a
 	 * - you are not allowed to modify p
 	 * - only one statement
