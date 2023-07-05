@@ -11,6 +11,7 @@ int is_palindrome(char *s)
 		return (1);
 	return (palindrome_check(s, 0, _strlen_recursion(s) - 1));
 }
+
 /**
  * _strlen_recursion - returns the length of a string
  * @s: string
@@ -22,6 +23,7 @@ int _strlen_recursion(char *s)
 		return (0);
 	return (1 + _strlen_recursion(s + 1));
 }
+
 /**
  * palindrome_check - Entry point
  * @s: string
@@ -34,7 +36,7 @@ int palindrome_check(char *s, int len, int i)
 	if (len == i)
 		return (1);
 	else if (s[len] != s[i])
-			return (0);
+		return (0);
 	if (i < len)
 		return (palindrome_check(s, --len, ++i));
 	return (1);
