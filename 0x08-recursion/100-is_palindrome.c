@@ -23,19 +23,19 @@ int _strlen_recursion(char *s)
 	return (1 + _strlen_recursion(s + 1));
 }
 /**
- * palindrome_check - returns 1 if palindrome and 0 if not
+ * comparator - compare each character of string
  * @s: string
- * @len: length of string
- * @i: counter variable
+ * @n1: smallest iterator
+ * @n2: biggest iterator
  * Return: int
  */
-int palindrome_check(char *s, int len, int i)
+int comparator(char *s, int n1, int n2)
 {
-	if (len == i)
-		return (1);
-	else if (s[len] != s[i])
-		return (0);
-	if (i < len)
-		return (palindrome_check(s, --len, i++));
-	return (1);
+	if (*(s + n1) == *(s + n2))
+	{
+		if (n1 == n2 || n1 == n2 +1)
+			return (1);
+		return (0 + comparator(s, n1 + 1, n2 - 1));
+	}
+	return (0);
 }
