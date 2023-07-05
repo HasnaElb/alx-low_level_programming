@@ -7,11 +7,9 @@
  */
 int is_palindrome(char *s)
 {
-	int len = _strlen_recursion(s), i = 0;
-
-	if (len == 0)
+	if (*s == '\0')
 		return (1);
-	return (palindrome_check(s, len - 1, i));
+	return (palindrome_check(s, 0, _strlen_recursion(s) - 1));
 }
 /**
  * _strlen_recursion - returns the length of a string
@@ -22,7 +20,6 @@ int _strlen_recursion(char *s)
 {
 	if (*s == '\0')
 		return (0);
-	else
 	return (1 + _strlen_recursion(s + 1));
 }
 /**
