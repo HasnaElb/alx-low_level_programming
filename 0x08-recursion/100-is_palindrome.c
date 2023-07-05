@@ -20,12 +20,10 @@ int is_palindrome(char *s)
  */
 int _strlen_recursion(char *s)
 {
-	int len;
-
 	if (*s == '\0')
 		return (0);
-	len = _strlen_recursion(s + 1);
-	return (len + 1);
+	else
+	return (1 + _strlen_recursion(s + 1));
 }
 /**
  * palindrome_check - returns 1 if palindrome and 0 if not
