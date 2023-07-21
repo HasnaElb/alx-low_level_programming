@@ -5,7 +5,7 @@
  * op_add - suma
  * @a: int
  * @b: int
- * description: suma
+ * Description: suma
  * Rerurn: 0
  */
 int op_add(int a, int b)
@@ -16,7 +16,7 @@ int op_add(int a, int b)
  * op_sub - resta
  * @a: int
  * @b: int
- * description: resta
+ * Description: resta
  * Return: 0
  */
 int op_sub(int a, int b)
@@ -27,7 +27,7 @@ int op_sub(int a, int b)
  * op_mul - multi
  * @a: int
  * @b: int
- * description: multi
+ * Description: multi
  * Return: 0
  */
 int op_mul(int a, int b)
@@ -38,7 +38,7 @@ int op_mul(int a, int b)
  * op_div - div
  * @a: int
  * @b: int
- * description: div
+ * Description: div
  * Return: 0
  */
 int op_div(int a, int b)
@@ -54,7 +54,7 @@ int op_div(int a, int b)
  * op_mod - mod
  * @a: int
  * @b: int
- * description: mod
+ * Description: mod
  * Return: 0
  */
 int op_mod(int a, int b)
