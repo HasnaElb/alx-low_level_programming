@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+#include <stdio.h>
+#include <string.h>
 /**
  * strtow - A function that splits a string into words
  * @str: An input pointer of the string to split
@@ -15,8 +16,8 @@ char **strtow(char *str)
 		return (NULL);
 	for (; str[i]; i++)
 	{
-		if ((str[i] != "" || *str != '\t') &&
-				((str[i + 1] == "" || str[i + 1] == '\t') || str[i + 1] == '\n'))
+		if ((str[i] != ' ' || *str != '\t') &&
+				((str[i + 1] == ' ' || str[i + 1] == '\t') || str[i + 1] == '\n'))
 			count++;
 	}
 	if (count == 0)
@@ -26,11 +27,11 @@ char **strtow(char *str)
 		return (NULL);
 	for (i = 0; str[i] != '\0' && k < count; i++)
 	{
-		if (str[i] != "" || str[i] != '\t')
+		if (str[i] != ' ' || str[i] != '\t')
 		{
 			len = 0;
 			j = i;
-			while ((str[j] != "" || str[j] != '\t') && str[j] != '\0')
+			while ((str[j] != ' ' || str[j] != '\t') && str[j] != '\0')
 				j++, len++;
 			array[k] = malloc((len + 1) * sizeof(char));
 			if (array[k] == NULL)
@@ -46,5 +47,5 @@ char **strtow(char *str)
 		}
 	}
 	array[k] = NULL;
-	return (array);
+	return (array[k]);
 }
