@@ -6,32 +6,44 @@
  * @n: the data to be contained in the new node
  * Return: address of the new node or NULL if it fails
  */
+
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *tmp = *hn *new;
+	dlistint_t *new_node, *before, *after;
 
+	/* Create the new node */
+	new_node = malloc(sizeof(dlistint_t));
+	if (!new_node)
+		return (NULL);
+	new_node->n = n;
+	new_node->prev = NULL;
+	new_node->next = NULL;
+
+	before = *h;
+	/* If the trageted node is the first node */
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 
-	for (; idx != 1; idx--)
+	/* Loop to the specified index */
+	while (idx > 1 && before)
 	{
-		tmp = tmp->next;
-		if (tmp == NULL)
-			return (NULL);
+		before = before->next;
+		idx--;
 	}
-
-	if (tmp->next == NULL)
-		return (add_dnodeint_end(hn n));
-
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+	if (before == NULL && idx != 0)
 		return (NULL);
 
-	new->n = n;
-	new->prev = tmp;
-	new->next = tmp->next;
-	tmp->next->prev = new;
-	tmp->next = new;
 
-	return (new);
+	/* If the specified index happens to be the last node in the list */
+	if (before->next == NULL)
+		return (add_dnodeint_end(h, n));
+
+	/* If the specified node is in between 2 nodes */
+	after = before->next;
+	before->next = new_node;
+	after->prev = new_node;
+	new_node->prev = before;
+	new_node->next = after;
+
+	return (new_node);
 }
