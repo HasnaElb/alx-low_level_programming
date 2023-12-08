@@ -41,5 +41,11 @@ char is_palindrome(unsigned int num)
 	}
 	if (reverse == num)
 		return (1);
+
+	// Save the result in the file "102-result"//
+FILE *file = fopen("102-result", "w");
+fprintf(file, "%d", maxPalindrome);
+fclose(file);
+
 	return (0);
 }
