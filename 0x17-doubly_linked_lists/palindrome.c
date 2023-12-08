@@ -1,51 +1,39 @@
 #include <stdio.h>
 
-char is_palindrome(unsigned int num);
-/**
- * main - entry point to find palindrome program
- *
- * Return: always 0
- */
-int main(void)
-{
-	unsigned int d1, d2, temp, max;
+// Function to check if a number is a palindrome
+int isPalindrome(int num) {
+    int originalNum = num;
+    int reversedNum = 0;
 
-	max = 0;
-	for (d1 = 100; d1 <= 999; d1++)
-	{
-		for (d2 = 100; d2 <= 999; d2++)
-		{
-			temp = d1 * d2;
-			if (is_palindrome(temp))
-				max = (temp > max) ? temp : max;
-		}
-	}
-	printf("Largest palindrome of 3 digit numbers is: %d\n", max);
+    while (num > 0) {
+        int digit = num % 10;
+        reversedNum = reversedNum * 10 + digit;
+        num /= 10;
+    }
+
+    return originalNum == reversedNum;
 }
 
+int main() {
+    int maxPalindrome = 0;
+    int num1, num2;
 
-/**
-  * is_palindrome - A function that checks if list is a palindrome.
-  * @num: The number to check.
-  * Return: 1 if number is a palindrome, or 0 if not.
-  */
-char is_palindrome(unsigned int num)
-{
-	unsigned int reverse = 0, rem = 0, n = num;
+    // Loop through all 3-digit numbers
+    for (int i = 100; i < 1000; i++) {
+        for (int j = 100; j < 1000; j++) {
+            int product = i * j;
+            if (isPalindrome(product) && product > maxPalindrome) {
+                maxPalindrome = product;
+                num1 = i;
+                num2 = j;
+            }
+        }
+    }
 
-	while (n != 0)
-	{
-		rem = n % 10;
-		reverse = reverse * 10 + rem;
-		n /= 10;
-	}
-	if (reverse == num)
-		return (1);
+    // Save the result in the file "102-result"
+    FILE *file = fopen("102-result", "w");
+    fprintf(file, "%d", maxPalindrome);
+    fclose(file);
 
-	// Save the result in the file "102-result"//
-FILE *file = fopen("102-result", "w");
-fprintf(file, "%d", maxPalindrome);
-fclose(file);
-
-	return (0);
+    return 0;
 }
